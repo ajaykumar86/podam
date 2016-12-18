@@ -7,7 +7,8 @@ checkout:
     - git submodule update --init
     - mv config/.app.yml config/app.yml
 dependencies:
-  - mvn clean verify
+  override:
+    - bundle install: mvn clean verify
 branches:
   only:
     - develop
