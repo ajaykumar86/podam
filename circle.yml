@@ -8,10 +8,11 @@ checkout:
     - mv config/.app.yml config/app.yml
 dependencies:
   override:
-    - bundle install: mvn clean verify
+    - mvn clean verify
 branches:
   only:
     - develop
-test:
-   - bash <(curl -s https://codecov.io/bash)
+notify:
+  webhooks:
+   -url: https://codecov.io/bash
 
