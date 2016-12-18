@@ -1,11 +1,9 @@
 machine:
   java:
     version: openjdk7
-script:
-  - mvn clean verify
 branches:
   only:
     - develop
-after_success:
+deploy:
    - bash <(curl -s https://codecov.io/bash)
 test:
