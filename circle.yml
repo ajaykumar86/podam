@@ -6,7 +6,7 @@ checkout:
     - git submodule sync
     - git submodule update --init
     - mv config/.app.yml config/app.yml
- dependencies:
+dependencies:
   - mvn clean verify
 branches:
   only:
