@@ -9,6 +9,6 @@ checkout:
 branches:
   only:
     - develop
-deploy:
-   - bash <(curl -s https://codecov.io/bash)
 test:
+   - bash <(curl -s https://codecov.io/bash)
+
