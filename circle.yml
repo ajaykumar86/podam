@@ -16,8 +16,4 @@ test:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit1/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 deployment:
-   master:
-   owner: circleci
-   command:
-      - ./deploy_master.sh
-
+   - curl https://codecov.io/bash
