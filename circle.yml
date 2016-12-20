@@ -7,12 +7,14 @@ checkout:
     - git submodule update --init
     - mv config/.app.yml config/app.yml
 dependencies:
-  override:
+  pre:
     - mvn clean verify
-branches:
-  only:
-    - develop
-notify:
-  webhooks:
-   -url: https://codecov.io/bash
+    - mvn dependency:resolve
+compile:
+test:
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit1/
+    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+deployment:
+   - curl https://codecov.io/bash
 
