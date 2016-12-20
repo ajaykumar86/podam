@@ -2,14 +2,13 @@ machine:
   java:
     version: openjdk7
 checkout:
-  post:
+  pre:
     - git submodule sync
     - git submodule update --init
     - mv config/.app.yml config/app.yml
 dependencies:
   pre:
     - mvn clean verify
-    - mvn dependency:resolve
 compile:
 test:
   post:
