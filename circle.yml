@@ -4,10 +4,8 @@ machine:
 checkout:
   pre:
     - git submodule sync
-    - git submodule update --init
-    - mv config/.app.yml config/app.yml
 dependencies:
-  pre:
+  post:
     - mvn clean verify
 compile:
 test:
